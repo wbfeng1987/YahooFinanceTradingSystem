@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.mercury.beans.Stock;
 import com.mercury.beans.User;
 import com.mercury.daos.UserDao;
 
@@ -74,7 +73,7 @@ public class UserDaoImpl implements UserDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public User findByUserName(String userName) {
-		List<User> users = template.find("FROM User user WHERE user.userName = ?", userName);
+		List<User> users = template.find("FROM User user WHERE user.username = ?", userName);
 		if (users.size() == 0) return null;
 		return users.get(0);
 	}

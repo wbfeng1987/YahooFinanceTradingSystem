@@ -1,5 +1,7 @@
 package com.mercury.controllers;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -13,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.mercury.beans.User;
 import com.mercury.dtos.UserInfo;
 import com.mercury.services.MainService;
+import com.mercury.services.UserService;
 
 /**
  * 
@@ -32,6 +35,8 @@ public class MainController {
 	
 	@Autowired
 	private MainService ms;
+	@Autowired
+	private UserService us;
 
 	@RequestMapping(value="/next", method=RequestMethod.POST)
 	public ModelAndView process(@ModelAttribute("user") 
@@ -46,8 +51,23 @@ public class MainController {
 	
 	@RequestMapping("/main")
 	public String mainPage() {
-		System.out.println("Hello");
 		return "home";
+	}
+	
+	@RequestMapping("/main1")
+	public String mainPage2() {
+		return "main";
+	}
+	
+	@RequestMapping(value="rest/finduser", method=RequestMethod.GET)
+	@ResponseBody
+	public User findUser(HttpServletRequest request){
+		System.out.println("Has been mapped");
+		String username = request.getParameter("username");
+		System.out.println(username);
+		User user = us.findUserByUserName(username);
+		System.out.println(user);
+		return user;
 	}
 
 }
