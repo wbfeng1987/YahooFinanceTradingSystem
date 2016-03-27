@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mercury.beans.User;
-import com.mercury.dtos.UserInfo;
 import com.mercury.services.MainService;
 import com.mercury.services.UserService;
 
@@ -41,11 +40,9 @@ public class MainController {
 	@RequestMapping(value="/next", method=RequestMethod.POST)
 	public ModelAndView process(@ModelAttribute("user") 
 			User user, BindingResult result) {
-		UserInfo userInfo = ms.process(user);
-		//UserInfo userInfo = null;
+		ms.signUp(user);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("next");
-		mav.addObject("userInfo", userInfo);
 		return mav;
 	}
 	
