@@ -57,7 +57,7 @@
 	</form>
 	<hr>
 	<h2>New to YFTS? Create your YFTS account:</h2>
-	<form action="signUp.html" method="post">
+<!--  	<form action="signUp" method="post">
 		<table>
 			<tr>
 				<td>Username: </td>
@@ -87,6 +87,6 @@
 				</td>
 			</tr>
 		</table>
-	</form>
+	</form> -->
 </body>
 </html>

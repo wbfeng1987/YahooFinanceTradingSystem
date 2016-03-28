@@ -23,7 +23,7 @@
         />
         <!-- authentication-success-handler-ref="loginSuccessfulAuthHandler" -->	
       
-        <sec:logout logout-success-url="/login" />
+        <sec:logout logout-success-url="/login" delete-cookies="JSESSIONID"/>
         <sec:remember-me />
 	</sec:http>
 	
