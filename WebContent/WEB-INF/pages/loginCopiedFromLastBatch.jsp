@@ -1,21 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/security/tags"
 	prefix="sec"%>
-	
-<html>
-<head>
+<html lang="en">
 
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<head>
+<!-- Basic Page Needs
+    ================================================== -->
 <meta charset="utf-8">
 <!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
 <title>Yahoo Finance Trading System</title>
+
 
 <!-- Favicons
     ================================================== -->
@@ -26,45 +24,78 @@
 <link rel="apple-touch-icon" sizes="114x114"
 	href="img/apple-touch-icon-114x114.png">
 
-<script src="bower_component/jquery/dist/jquery.min.js"></script>
-<script src="bower_component/angular/angular.min.js"></script>
-<script src="bower_component/angular-messages/angular-messages.min.js"></script>
-<script src="bower_component/isotope/js/isotope.js"></script>
-
-
 <!-- Bootstrap -->
-<link href="bower_component/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="bower_component/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
-<script type="text/javascript" src="bower_component/bootstrap/dist/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css"
+	href="fonts/font-awesome/css/font-awesome.css">
 
-<!-- font-awesome -->
-<link rel="stylesheet" type="text/css" href="bower_component/fontawesome/css/font-awesome.min.css">
+<!-- Slider
+    ================================================== -->
+<link href="css/owl.carousel.css" rel="stylesheet" media="screen">
+<link href="css/owl.theme.css" rel="stylesheet" media="screen">
+
+<!-- Stylesheet
+    ================================================== -->
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/responsive.css">
+
+<link
+	href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic'
+	rel='stylesheet' type='text/css'>
+<link
+	href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,700,300,600,800,400'
+	rel='stylesheet' type='text/css'>
+
+<script type="text/javascript" src="js/modernizr.custom.js"></script>
+
+
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 
 
-<!-- modernizr -->
-<!-- need attention here -->
-<script type="text/javascript" src="bower_component/modernizr/modernizr.js"></script>
 
-<!-- owl Slider -->
-<!-- need attention here -->
-<link href="bower_component/owl/owl-carousel/owl.carousel.css" rel="stylesheet" media="screen">
-<link href="bower_component/owl/owl-carousel/owl.theme.css" rel="stylesheet" media="screen">
-<script src="bower_component/owl/owl-carousel/owl.carousel.min.js"></script>
 
-<!-- animate -->
-<link rel="stylesheet" href="bower_component/animate-css/animate.min.css" type="text/css">
+<!-- ******************************************************************************************** -->
 
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>TradingSystem Main Page</title>
+<script src="js/jquery.min.js"></script>
+<script src="js/angular.min.js"></script>
+<script
+	src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
+<script src="js/app2.js"></script>
+
+<!-- Bootstrap Core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link href="css/stylesheet.css" rel="stylesheet">
+<link href="css/landing-page.css" rel="stylesheet">
+<!-- <link href="css/agency.css" rel="stylesheet">  -->
+<link rel="stylesheet" href="css/animate.min.css" type="text/css">
+<link rel="stylesheet" href="css/creative.css" type="text/css">
+<!-- 	<link rel="stylesheet" href="css/agency.css" type="text/css"> -->
+<!-- Custom Fonts -->
+<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet"
+	type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+	rel="stylesheet" type="text/css">
+
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
 <script>
-	$(document).ready(function() {
-		var errorMsg = "<c:out value='${param.login_error}'/>"
-		if (errorMsg) {
-			$("#error").show();
-		}
-	});
-	
-	//
 	$(document).ready(function() {
 		// Show or hide the sticky footer button
 		$(window).scroll(function() {
@@ -98,8 +129,7 @@
 			$("#usernameExist").hide();
 			$("#emailExist").hide();
 		});
-
-
+		
 		$("#login-form-link").click(function(e) {
 			$("#login-form").delay(100).fadeIn(100);
 			$("#register-form").fadeOut(100);
@@ -142,41 +172,42 @@
 	}
 </script>
 <style>
-	.alert {
+.alert {
 	color: red;
 	background: #fdf1e5;
 	font-size: 10px;
 	line-height: 16px;
 	margin: 10;
 	position: relative;
-	}
+}
 
-	.error {
+.error {
 	color: #FF6600;
 	font-weight: 400;
-	}
-	h2 {
-		color: green;
-	}
-	#error {
-		color: red;
-		font-weight: bold;
-		font-size: 10px;
-	}
+}
 </style>
 </head>
+
 <body id="page-top" class="index">
-	<!-- Navigation============================================================= -->
-	
-	<script type="text/javascript" src="bower_component/jquery/dist/jquery.min.js"></script>
-	<script type="text/javascript" src="bower_component/bootstrap/dist/js/bootstrap.min.js"></script>
-	<script type="text/javascript" 
-		src="bower_component/jquery-smooth-scrolling/jquery.smoothscroll.min.js"></script>
-	<script type="text/javascript" src="bower_component/isotope/js/isotope.js"></script>
-	<script src="bower_component/owl/owl-carousel/owl.carousel.min.js"></script>
-	
-	
-    <nav id="tf-menu" class="navbar navbar-default navbar-fixed-top">
+	<!-- Navigation
+    ==========================================-->
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.1.11.1.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/SmoothScroll.js"></script>
+	<script type="text/javascript" src="js/jquery.isotope.js"></script>
+
+	<script src="js/owl.carousel.js"></script>
+
+	<!-- Javascripts
+    ================================================== -->
+	<script type="text/javascript" src="js/main.js"></script>
+
+
+	<nav id="tf-menu" class="navbar navbar-default navbar-fixed-top">
 		<div class="container">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
@@ -216,8 +247,8 @@
 		</div>
 		<!-- /.container-fluid -->
 	</nav>
-	
-    <!-- Home Page
+
+	<!-- Home Page
     ==========================================-->
 	<div id="tf-home" class="text-center">
 		<div class="overlay">
@@ -233,7 +264,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<!-- Services Section
     ==========================================-->
 
@@ -290,11 +321,28 @@
 				</div>
 			</div>
 		</div>
-	</div>>
-	
-	
-	<!-- market section -->
-	<div id="tf-market" class="section-title center">
+
+
+
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script
+			src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery.1.11.1.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script type="text/javascript" src="js/bootstrap.js"></script>
+		<script type="text/javascript" src="js/SmoothScroll.js"></script>
+		<script type="text/javascript" src="js/jquery.isotope.js"></script>
+
+		<script src="js/owl.carousel.js"></script>
+
+		<!-- Javascripts
+    ================================================== -->
+		<script type="text/javascript" src="js/main.js"></script>
+
+		<!-- *************************************************************************************************** -->
+		<!-- Header -->
+
+		<div id="tf-market" class="section-title center">
 			<div class="container-fluid">
 				<div class="top headerLinks">
 					<a href="#"> <img width="130" height="60" src="icon/icon.jpg">
@@ -302,10 +350,9 @@
 
 				</div>
 			</div>
-	</div>
 
         <!-- /.container -->
-        
+		</div>
 		<!-- 12 month Batch start -->
 		<div id="tv-miniwidget-dfa0f" class="markets_chart">
 			<!-- <div id="tf-market" class="markets_chart">-->
@@ -336,10 +383,11 @@
 			src="https://d33t3vvu2t2yu5.cloudfront.net/tv.js"></script>
 		<!-- 12 month Batch end -->
 	</div>
-	
-	
-    <!-- team section -->
-    <div id="tf-team" class="text-center">
+
+	<!-- /.container -->
+	<!-- Team Page
+    ==========================================-->
+	<div id="tf-team" class="text-center">
 		<div class="overlay">
 			<div class="container">
 				<div class="section-title center">
@@ -403,8 +451,10 @@
 
 		</div>
 	</div>
-	
-	
+	</div>
+
+
+
 	<!-- Login Section -->
 	<a name="login_up"></a>
 	<div id="tf-login" class="banner" ng-app="validation"
@@ -646,17 +696,23 @@
 			</div>
 		</div>
 	</div>
-	
-	
-	<!-- back to top button -->
+
+
 	<div class="rtop_btn" id="rtop_btn" style="display: none;">
 		<a href="#" class="toplink cd-top"> <img src="icon/backtotop.png"
 			class="totop" width="60" height="60">
 		</a>
 	</div>
 
+	<c:import url="pageComponent/footer.jsp"></c:import>
 
-	<c:import url="page_component/footer.jsp"></c:import>
-	
+
+	<!-- jQuery -->
+	<script src="js/jquery.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="js/bootstrap.min.js"></script>
+
 </body>
+
 </html>

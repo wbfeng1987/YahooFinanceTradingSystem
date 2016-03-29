@@ -40,18 +40,17 @@ public class LoginController {
 	private UserService us;
 	
 	//for login interface
-	@RequestMapping(value="login", method = RequestMethod.GET)
+	@RequestMapping(value="/login", method = RequestMethod.GET)
 	public String login() {
-		System.out.println("in login");
-		return "testSignInAndUp";
+		return "login";
 	}
-
+/*
 	@RequestMapping(value="/home", method = RequestMethod.GET)
 	public String home() {
 		System.out.println("at home");
 		return "home";
 	}
-	
+	*/
 	// for sign up 
 	@RequestMapping(value="/signUp", method = RequestMethod.POST)
 	public ModelAndView signUp(@ModelAttribute("user") User user, BindingResult result) {
