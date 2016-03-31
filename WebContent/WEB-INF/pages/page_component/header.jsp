@@ -3,20 +3,19 @@
 		<div class="top headerLinks">
 			
 			<ul class="nav navbar-nav navbar-right col-md-2" >
-			<sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER')?false:true">
-				
-			        <li style="float:right;">
-	                  	<a href="login#login_up">
-	                  	 	<span class="glyphicon glyphicon-log-in" ></span> Sign in
-	                  	</a> 
-		        </li>
-		   
-		    </sec:authorize>
-		    <sec:authorize access="hasRole('ROLE_ADMIN')">
-              	<li style="float:right;">	
-					<span style="font-size:25px;"><strong></strong></span>
-              	</li>  
-            </sec:authorize>  
+				<sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER')?false:true">
+					<li style="float:right;">
+						<a href="login#login_up">
+							<span class="glyphicon glyphicon-log-in" ></span> Sign in
+						</a> 
+					</li>
+			    </sec:authorize>
+			    
+			    <sec:authorize access="hasRole('ROLE_ADMIN')">
+	              	<li style="float:right;">	
+						<span style="font-size:25px;"><strong></strong></span>
+	              	</li>  
+	            </sec:authorize>
              </ul>
 		</div>
 		</div>
